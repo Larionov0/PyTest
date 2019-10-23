@@ -9,8 +9,8 @@ class Pack(models.Model):
     Це типу пак (набір) з тестами.
     Має містити список питань
     """
-    name = models.CharField(max_length=40, help_text="Name of pack")
-    questions_json = models.TextField(help_text="List of questions id-s converted to json")
+    name = models.CharField(max_length=50, help_text="Name of pack")
+    questions_json = models.CharField(max_length=300, help_text="List of questions id-s converted to json")
     reward = models.IntegerField(help_text="Reward in Paisons")
 
     def __str__(self):
@@ -22,19 +22,16 @@ class Question(models.Model):
     А це типу саме питання.
     Містить питання, список (як бінарник..) відповідей, індекс правильної.
     """
+    """
     def __init__(self, *args, **kwargs):
         answers = kwargs.pop("answers")
         super().__init__(*args, **kwargs)
         self.set_answers(answers)
-
+    """
+    pack = models.ForeignKey(Pack)
     question = models.CharField(max_length=1000, help_text="Question`s text")
-    answers_json = models.TextField(help_text="List of answers converted to json")
+    answers_json = models.CharField(max_length=300, help_text="List of answers converted to json")
     index_of_correct = models.IntegerField(help_text="Index of correct answer")
-
-
-    # Metadata
-    class Meta:
-        pass
 
     def set_answers(self, lst):
         self.answers = dumps(lst)
@@ -53,7 +50,3 @@ class Question(models.Model):
         String for representing the MyModelName object (in Admin site etc.)
         """
         return f"{self.question}"
-
-
-first_question = Question(question="WTF?", answers=[1, 2, 3], index_of_correct=1)
-print(first_question)
