@@ -9,9 +9,9 @@ class Pack(models.Model):
     Це типу пак (набір) з тестами.
     Має містити список питань
     """
-    name = models.CharField(max_length=50, help_text="Name of pack")
-    questions_json = models.CharField(max_length=300, help_text="List of questions id-s converted to json")
-    reward = models.IntegerField(help_text="Reward in Paisons")
+    name = models.CharField(max_length=50, default="PackName", help_text="Name of pack")
+    questions_json = models.CharField(max_length=300, default="questions", help_text="List of questions id-s converted to json")
+    reward = models.IntegerField(default=0, help_text="Reward in Paisons")
 
     def __str__(self):
         return str(self.name) + " pack"
@@ -28,10 +28,12 @@ class Question(models.Model):
         super().__init__(*args, **kwargs)
         self.set_answers(answers)
     """
-    pack = models.ForeignKey(Pack)
-    question = models.CharField(max_length=1000, help_text="Question`s text")
-    answers_json = models.CharField(max_length=300, help_text="List of answers converted to json")
-    index_of_correct = models.IntegerField(help_text="Index of correct answer")
+    quest_pack = models.ForeignKey(Pack, default=0, on_delete=models.CASCADE)
+    question = models.CharField(max_length=1000, default="Question", help_text="Question`s text")
+    answers_json = models.CharField(max_length=300, default="answers", help_text="List of answers converted to json")
+    index_of_correct = models.IntegerField(default=0, help_text="Index of correct answer")
+    count_of_correct = models.IntegerField(default=0, help_text="Count of correct answers")
+    count_of_incorrect = models.IntegerField(default=0, help_text="Count of incorrect answers")
 
     def set_answers(self, lst):
         self.answers = dumps(lst)
@@ -49,4 +51,4 @@ class Question(models.Model):
         """
         String for representing the MyModelName object (in Admin site etc.)
         """
-        return f"{self.question}"
+        return f"{self.question[:30]}..."
