@@ -6,10 +6,15 @@ from .models import *
 # Create your views here.
 def index(request):
     count_of_packs = Pack.objects.all().count()
+    packs = Pack.objects.all()
     count_of_questions = Question.objects.all().count()
+    questions = Question.objects.all()
+
     return render(request, "index.html",
-                  context={"count of packs": count_of_packs,
-                           "count of questions": count_of_questions})
+                  context={"count_of_packs": count_of_packs,
+                           "count_of_questions": count_of_questions,
+                           "packs": packs,
+                           "questions": questions})
 
 
 def lol(request):

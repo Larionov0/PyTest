@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Index maybe :) {%endblock%}</title>
+    {% block link %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+    <h1 class = "lol">Base block content!!! :(</h1>
+    {% endblock %}
+</body>
+</html>

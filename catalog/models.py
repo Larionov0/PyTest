@@ -40,6 +40,15 @@ class Question(models.Model):
     def get_answers(self):
         return loads(self.answers)
 
+    def get_html_question(self):
+        i = 0
+        string = self.question[:]
+        while i < len(string):
+            if string[i] == "\n":
+                string = string[:i] + "<br>" + string[i + 1:]
+            i += 1
+        return string
+
     def get_absolute_url(self):
         """
         Returns the url to access a particular instance of MyModelName.
