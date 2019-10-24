@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>My Cabinet</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/MyCabinet_page.css' %}">
+</head>
+<body>
+	<header>
+	<div class="container">
+		<div class="UpperRectangle clearfix">
+			<a href="index.html">
+			<img src="{% static 'css/img/logo.png' %}" alt="Logo" id="logo">
+			</a>
+			<p>Мій кабінет</p>
+		</div>
+		<div id="nickname">
+			<p>Larko_0</p>
+		</div>
+		<div>
+			<table id="atributes">
+				<tr>
+					<td class="keyss">Пайсони: </td><td class="valuess">240</td>
+				</tr>
+				<tr>
+					<td class="keyss">Розв'язано: </td><td class="valuess">14</td>
+				</tr>
+				<tr>
+					<td class="keyss">Досягнення: </td>
+					<td id="achivements"><ul>
+						<li>Awesome Pythonist</li>
+						<li>Great Pythonist</li>
+						<li>Wonderfull Pythonist</li>
+						<li>Awesome Pythonist</li>
+						<li>Awesome Pythonist</li>
+						<li>Awesome Pythonist</li>
+					</ul></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	</header>
+	<section id="tasks_back" class="container">
+		<h1 id="tasks_word">Завдання</h1>
+		<br>
+		{% for pack in all_packs %}
+		<div class="task" id="VariablesPower">
+			<h2>{{ pack.name }}</h2>
+			<table>
+				<tr>
+					<td class="keys">Запитань: </td>
+					<td class="values">{{ pack.count_of_questions }}</td>
+				</tr>
+				<tr>
+					<td class="keys">Винагорода: </td>
+					<td class="values">{{ pack.reward }}</td>
+				</tr>
+				<tr>
+					<td class="keys">Складність: </td>
+					<td class="values">3/10</td>
+				</tr>
+			</table>
+			<button  onclick="toPage('Pack_page.html', '_self')">
+				<p>Відкрити пак</p>
+			</button>
+		</div>
+		{% endfor %}
+
+	</section>
+	<footer>
+		<hr/>
+		<div class="container clearfix">
+			<img src="{% static 'css/img/MiniLogo.png'%}", alt="Mini-logo", id="mini-logo">
+			<p id="footer_info"><img style="width: 25px; height: auto;" src="{% static 'css/img/Telegram.png'%}"> Telegram: <a href="https://web.telegram.org/#/login">@Larko_0</a><br/>Phone number: +380950218899</p>
+		</div>
+	</footer>
+	<script type="text/javascript", src="Pack_page.js"></script>
+</body>
+</html>

@@ -19,3 +19,12 @@ def index(request):
 
 def lol(request):
     return HttpResponse("<ul><li>lol</li><li>kek</li><li>cheburek</li></ul>")
+
+
+def packs(request):
+    count_of_packs = Pack.objects.all().count()
+    packs = Pack.objects.all()
+
+    return render(request, "MyCabinet_page.html",
+                  context={"count_of_packs": count_of_packs,
+                           "all_packs": packs})

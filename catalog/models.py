@@ -11,21 +11,20 @@ class Pack(models.Model):
     """
     name = models.CharField(max_length=50, default="PackName", help_text="Name of pack")
     reward = models.IntegerField(default=0, help_text="Reward in Paisons")
+    difficulty = models.IntegerField(default=0, help_text="Difficult of pack")
 
     def __str__(self):
         return str(self.name) + " pack"
+
+    def count_of_questions(self):
+        return self.question_set.count()
 
 
 class Question(models.Model):
     """
     А це типу саме питання.
     Містить питання, список (як бінарник..) відповідей, індекс правильної.
-    """
-    """
-    def __init__(self, *args, **kwargs):
-        answers = kwargs.pop("answers")
-        super().__init__(*args, **kwargs)
-        self.set_answers(answers)
+
     """
     quest_pack = models.ForeignKey(Pack, default=0, on_delete=models.CASCADE)
     question = models.TextField(max_length=1000, default="Question", help_text="Question`s text")

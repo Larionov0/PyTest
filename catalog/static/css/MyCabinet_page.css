@@ -1,0 +1,233 @@
+body {
+	font-family: Cooper Black, Arial, sans-serif;
+	padding: 0;
+	margin: 0;
+	background-color: rgba(0, 255, 127, 0.5)
+}
+
+
+header {
+	background: url("img/Bacground.png") no-repeat center top / cover;
+	height: auto;
+	padding: 10px 0 0 0;
+}
+
+div {
+	box-sizing: border-box;
+}
+
+.container {
+	width: 900px;
+	margin: 0 auto;
+}
+
+
+.clearfix:after {
+	content: '';
+	display: table;
+	width: 100%;
+	clear: both;
+}
+
+.UpperRectangle {
+	margin-top: 0px;
+	border-width: 2.51px;
+	border-color: rgb(0, 0, 0);
+	border-style: solid;
+	border-radius: 20px;
+	background-color: rgba(168, 224, 137, 0.7);
+	height: 87px;
+}
+
+.UpperRectangle p {
+	float: right;
+	margin-top: 8px;
+	margin-right: 10px;
+	margin-left: 70px;
+	font-size: 50px;
+  	font-family: "Myriad Pro";
+  	color: rgb(17, 74, 23);
+  	font-weight: bold;
+  	line-height: 1.2;
+  	text-align: center;
+}
+
+.UpperRectangle p a {
+	text-decoration: none;
+	font-size: 40px;
+  	color: rgb(17, 74, 23);
+  	background-color: rgba(0, 0, 0, 0.6)
+  	border-radius: 10px;
+}
+
+
+#logo {
+
+	max-width: 200px;
+	height: auto;
+	float: left;
+	opacity: 100%;
+	margin-top: 10px;
+	margin-left: 3px;
+}
+
+#nickname {
+	text-align: center;
+}
+
+#nickname p {
+	margin: 40px 0 10px 300px;
+	font-size: 40px;
+	width: 300px;
+	height: 60px;
+	border-radius: 10px;
+	background: rgba(0, 0, 0, 0.62);
+	color: white;
+}
+
+#atributes {
+	margin-top: 40px;
+	border-spacing: 30px 20px;
+	margin-bottom: 100px;
+}
+
+#atributes tr {
+}
+
+#atributes td {
+	border-radius: 10px;
+	font-size: 30px;
+	background: rgba(0, 0, 0, 0.5);
+	color: white;
+}
+
+.keyss {
+	padding:10px;
+	width: 190px;
+}
+
+.valuess {
+	padding: 10px;
+	width: 50px;
+}
+
+#achivements {
+	width: 500px;
+}
+
+#tasks_back {
+	padding-top: 20px;
+	padding-bottom: 30px;
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+#tasks_word {
+	text-align: center;
+	font-size: 50px;
+	color: black;
+	border: 6px solid white;
+	margin: 0px;
+	background-color: rgba(255, 105, 180, 0.5);
+	border-radius: 60px;
+}
+
+.task {
+	width: 700px;
+	margin: 50px 100px;
+	border-radius: 50px;
+	border: 4px solid black;
+}
+
+.task h2 {
+	text-align: center;
+	color: black;
+	font-size: 40px;
+}
+
+.task table {
+	border-spacing: 60px 20px;
+}
+
+.task table td {
+	border-radius: 10px;
+	font-size: 30px;
+	background: rgba(50, 205, 50, 0.5);
+	color: white;
+}
+
+.task button {
+	background-color: rgba(127, 255, 0, 0.6);
+	border-radius: 6px;
+	margin: 10px 210px;
+	padding: 10px;
+}
+
+.task button p {
+	margin: 0;
+	color: white;
+	font-size: 40px;
+}
+
+#VariablesPower {
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+#VariablesPower h2 {
+	background-color: green;
+}
+
+#TypesOfData {
+	background-color: rgba(255, 215, 0, 0.5);
+}
+
+#TypesOfData h2 {
+	background-color: green;
+}
+
+#PrettyCode {
+	background-color: rgba(218, 112, 214, 0.5);
+}
+
+#PrettyCode h2 {
+	background-color: orange;
+}
+
+
+#WhatIf {
+	background-color: rgba(124, 252, 0, 0.5);
+}
+
+#WhatIf h2 {
+	background-color: red;
+}
+
+/*Footer*/
+#mini-logo {
+	float: left;
+}
+
+footer p {
+	margin-top: 0;
+	margin-right: 100px;
+	float: right;
+ 	font-family: "Myriad Pro";
+  	color: rgb(82, 134, 104);
+  	font-size: 30px;
+  	text-align: center;
+}
+
+footer a {
+	text-decoration: none;
+}
+
+#ToTheStart {
+	margin-left: 320px;
+	text-decoration: none;
+	font-size: 25px;
+	width: 400px;
+	height: 100px;
+	padding: 10px;
+	color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(115, 215, 0, 0.5)
+	border-radius: 1px;
+}
