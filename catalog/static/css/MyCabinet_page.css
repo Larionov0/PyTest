@@ -231,3 +231,7 @@ footer a {
 	background-color: rgba(115, 215, 0, 0.5)
 	border-radius: 1px;
 }
+
+.to_n_pack {
+    text-decoration: none;
+}

@@ -58,11 +58,11 @@
 				</tr>
 				<tr>
 					<td class="keys">Складність: </td>
-					<td class="values">3/10</td>
+					<td class="values">{{ pack.difficulty }}/10</td>
 				</tr>
 			</table>
 			<button  onclick="toPage('Pack_page.html', '_self')">
-				<p>Відкрити пак</p>
+				<p><a class="to_n_pack" href="/catalog/packs/{{ pack.id }}">Відкрити пак</a></p>
 			</button>
 		</div>
 		{% endfor %}

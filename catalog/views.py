@@ -24,7 +24,13 @@ def lol(request):
 def packs(request):
     count_of_packs = Pack.objects.all().count()
     packs = Pack.objects.all()
+    print(request.readline())
+    print(dir(request))
 
     return render(request, "MyCabinet_page.html",
                   context={"count_of_packs": count_of_packs,
                            "all_packs": packs})
+
+
+def pack(request):
+    pack = ""

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Pack</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static css/Pack_page.css %}">
+</head>
+<body>
+	<header>
+	<div class="container">
+		<div class="UpperRectangle clearfix">
+			<a href="index.html">
+			<img src="img/logo.png" alt="Logo" id="logo">
+			</a>
+			<p>Pack</p>
+		</div>
+	</div>
+	<div class="color_of_pack container ">
+		
+	</div>
+	</header>
+
+	<section class="container" id="base">
+		<div id="TaskBox">
+			<h1>Task 1</h1>
+			<p id="question">
+				Що поверне наступна програма:<br><br>
+				a = 3<br>
+				print(a + a * a)
+			</p>
+			<form id="answer_form">
+			</form>
+		</div>
+		<div id="NavBox">
+			<button id="BackButton">
+				Попереднє
+			</button>
+			<button id="NextButton" onclick="next_question()">
+				Наступне
+			</button>
+		</div>
+	</section>
+
+	<footer>
+		<hr/>
+		<div class="container clearfix">
+			<img src="img/MiniLogo.png", alt="Mini-logo", id="mini-logo">
+			<p id="footer_info"><img style="width: 25px; height: auto;" src="img/Telegram.png"> Telegram: <a href="https://web.telegram.org/#/login">@Larko_0</a><br/>Phone number: +380950218899</p>
+		</div>
+	</footer>
+	<script type="text/javascript" src="Pack_page.js"></script>
+</body>
+</html>
