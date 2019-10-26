@@ -2,36 +2,14 @@ function Pack (name, questions, paisons) {
 	this.name = name;
 	this.questions = questions;
 	this.paisons = paisons;
+	this.add_question = function (question) {
+	    this.questions.push(question);
+	}
 }
 
-function TestQuestion (question, answers, index_of_correct){
+function TestQuestion (question, answers){
 	this.question = question;
-	this.answers = answers;
-	this.index_of_correct = index_of_correct;
-}
-
-
-var packs = [];
-var variables_pack = new Pack("Variables",
-						  [new TestQuestion("Що поверне наступна програма?<br/>a = 3<br/>print(a + a * a)",
-						  					["3", "5", '12', "18"], 2),
-						   new TestQuestion("Що поверне наступна програма?<br/>a = 1<br/>b = 2<br/>print(a + b + 1)",
-						   					["2", "4", "1", "3"], 1),
-						   new TestQuestion("Що поверне наступна програма?<br/>a = 'lol'<br/>b = 'kek'<br/>print(a + 'b' + '1')",
-						   					["lolkek1", "lolkek", "Error", "lolb1", "ab1"], 3),
-						  ],
-						  30
-						  );
-packs.push(variables_pack);
-
-
-function set_nth_pack(packs, n){
-	var pack = packs[n];
-	set_nth_question(pack, 0);
-}
-
-function set_pack(pack){
-
+	this.answers = JSON.parse(answers);
 }
 
 
@@ -53,6 +31,10 @@ function set_nth_question(pack, n){
 
 
 function print_result(pack, answers){
+
+    end_test(answers);
+    return true;
+
 	var result_array = [];
 	var test_passed = true
 	var res = false;
@@ -84,18 +66,18 @@ function toPage(url, par){
 	window.open(url, par);
 }
 
+function no_questions() {
+    var base = document.getElementById("base");
+	base.innerHTML = "<h1>No questions:(</h1>";
+}
+
 var index_of_pack = 0;
 var question_index_ob = {index: 0};
 var user_answers = []
-//set_nth_pack(packs, index_of_pack);
 
-var base = document.getElementById("base");
-base.innerHTML = "<h1> {{ pack.name }} </h1>";
 
 
 function next_question(){
-    alert("{{ pack.name }}");
-    alert("lol");
 	var answers = document.getElementsByName("answers");
 	var result = false;
 	for (var i = 0; i < answers.length; i ++){
@@ -106,16 +88,21 @@ function next_question(){
 		}
 	}
 	if (result) {
-		var pack = packs[index_of_pack];
 		question_index_ob.index ++;
-		if (! set_nth_question(pack, question_index_ob.index)){
-			print_result(pack, user_answers);
+		if (! set_nth_question(current_pack, question_index_ob.index)){
+			print_result(current_pack, user_answers);
 		}
 	} else {
-		console.log('Answer please lol {{ pack.name }}  ');
+		console.log('Nope. Answer please');
 	}
 }
 
 function Pupa(pack){
     alert(pack);
 }
+
+function set_pack(name, paisons) {
+    pack = new Pack(name, [], paisons)
+}
+
+

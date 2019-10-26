@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Pack</title>
+	<title>Pack {{ pack.name }}</title>
 	{% load static %}
-	<link rel="stylesheet" type="text/css" href="{% static css/Pack_page.css %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/Pack_page.css' %}">
 </head>
 <body>
 	<header>
 	<div class="container">
 		<div class="UpperRectangle clearfix">
 			<a href="index.html">
-			<img src="img/logo.png" alt="Logo" id="logo">
+			<img src="{% static 'css/img/logo.png' %} " alt="Logo" id="logo">
 			</a>
 			<p>Pack</p>
 		</div>
@@ -33,7 +33,7 @@
 			</form>
 		</div>
 		<div id="NavBox">
-			<button id="BackButton">
+			<button id="BackButton" onclick="Pupa()">
 				Попереднє
 			</button>
 			<button id="NextButton" onclick="next_question()">
@@ -45,10 +45,37 @@
 	<footer>
 		<hr/>
 		<div class="container clearfix">
-			<img src="img/MiniLogo.png", alt="Mini-logo", id="mini-logo">
-			<p id="footer_info"><img style="width: 25px; height: auto;" src="img/Telegram.png"> Telegram: <a href="https://web.telegram.org/#/login">@Larko_0</a><br/>Phone number: +380950218899</p>
+			<img src="{% static 'css/img/MiniLogo.png' %}", alt="Mini-logo", id="mini-logo">
+			<p id="footer_info"><img style="width: 25px; height: auto;" src="{% static 'css/img/Telegram.png' %}"> Telegram: <a href="https://web.telegram.org/#/login">@Larko_0</a><br/>Phone number: +380950218899</p>
 		</div>
 	</footer>
-	<script type="text/javascript" src="Pack_page.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="{% static 'JavaScript/Lol.js' %}"></script>
+	<script type="text/javascript">
+
+
+		current_pack = new Pack('{{ pack.name|safe }}', [], {{ pack.reward|safe }});
+
+		function end_test(array) {
+			console.log(array);
+			$.ajax({
+            url: "{% url 'end_test' pack.id %}",
+            type: "POST",
+            data: {
+            	csrfmiddlewaretoken: "{{ csrf_token }}",
+                answers : JSON.stringify(array)
+            	},
+            success: function(data) {
+				alert(data);
+			},
+        	});
+		}
+
+		{% for question in pack.question_set.all %}
+		current_pack.add_question(new TestQuestion('{{ question.question|safe|linebreaks }}', '{{ question.answers_json|safe }}'));
+		{% endfor %}
+		set_nth_question(current_pack, 0)
+	</script>
 </body>
 </html>

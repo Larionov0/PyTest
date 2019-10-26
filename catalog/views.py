@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, HttpResponseRedirect
+from django.urls import reverse
 from .models import *
 
 
@@ -24,13 +25,30 @@ def lol(request):
 def packs(request):
     count_of_packs = Pack.objects.all().count()
     packs = Pack.objects.all()
-    print(request.readline())
-    print(dir(request))
 
     return render(request, "MyCabinet_page.html",
                   context={"count_of_packs": count_of_packs,
                            "all_packs": packs})
 
 
-def pack(request):
-    pack = ""
+def pack(request, pack_index):
+    try:
+        pack = Pack.objects.get(id=pack_index)
+    except:
+        return Http404("Pack not found ‿︵‿ヽ(°□° )ノ︵‿︵")
+
+    return render(request,
+                  "Pack_page.html",
+                  context={
+                      "pack": pack,
+                  })
+
+
+def end_test(request, pack_index):
+    try:
+        # pack = Pack.objects.get(id=pack_index)
+        pass
+    except:
+        return Http404("Pack not found ‿︵‿ヽ(°□° )ノ︵‿︵")
+
+    return HttpResponse("Yeeesss" + request.POST["answers"])
