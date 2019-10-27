@@ -8,9 +8,8 @@ from django.contrib.auth.models import User
 def login(request):
     context = {}
     if request.POST:
-        email = request.POST.get("email", '')
+        username = request.POST.get("username", '')
         password = request.POST.get("password", '')
-        username = email
         user = auth.authenticate(username=username, password=password)
         if user is not None:
             auth.login(request, user)

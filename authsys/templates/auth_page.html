@@ -15,8 +15,8 @@
 		<form id="email_password_box" action="{% url 'login' %}" method="post" name="form" onsubmit="valid(this)">
 			{% csrf_token %}
             <div class="email">
-				<label for="email" id="label_email">@Email:   </label>
-				<input type="text" name="email" id="email_box" class="boxes" onclick="to_black_color(label_email)">
+				<label for="username" id="label_email">Username:   </label>
+				<input type="text" name="username" id="username_box" class="boxes" onclick="to_black_color(label_email)">
 			</div>
 			<div class="passsword">
 				<label for="password" id="label_password">Password: </label>
@@ -24,7 +24,7 @@
 			</div>
 			<input type="submit" name="submit" id="uviity" style="font-size: 25pt; height: 60px; margin-top: 30px" value="Увійти">
             {% if login_error %}
-            <label class="error">{{ login_error }}</label>
+            <br><label class="error">{{ login_error }}</label>
             {% endif %}
 		</form>
 	</header>
