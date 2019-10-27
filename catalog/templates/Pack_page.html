@@ -49,28 +49,18 @@
 			<p id="footer_info"><img style="width: 25px; height: auto;" src="{% static 'css/img/Telegram.png' %}"> Telegram: <a href="https://web.telegram.org/#/login">@Larko_0</a><br/>Phone number: +380950218899</p>
 		</div>
 	</footer>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="{% static 'JavaScript/Lol.js' %}"></script>
 	<script type="text/javascript">
+		var url_end_test = "{% url 'end_test' pack.id %}";
+		var pack_name = '{{ pack.name|safe }}';
+		var pack_reward = {{ pack.reward|safe }};
+		var csrf_token = "{{ csrf_token }}";
 
-
-		current_pack = new Pack('{{ pack.name|safe }}', [], {{ pack.reward|safe }});
-
-		function end_test(array) {
-			console.log(array);
-			$.ajax({
-            url: "{% url 'end_test' pack.id %}",
-            type: "POST",
-            data: {
-            	csrfmiddlewaretoken: "{{ csrf_token }}",
-                answers : JSON.stringify(array)
-            	},
-            success: function(data) {
-				alert(data);
-			},
-        	});
-		}
+	</script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>-->
+	<script type="text/javascript" src="{% static 'JavaScript/Pack_page.js' %}"></script>
+	<script>
+		var current_pack = new Pack(pack_name, [], pack_reward);
 
 		{% for question in pack.question_set.all %}
 		current_pack.add_question(new TestQuestion('{{ question.question|safe|linebreaks }}', '{{ question.answers_json|safe }}'));

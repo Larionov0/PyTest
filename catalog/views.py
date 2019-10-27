@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.urls import reverse
 from .models import *
+from json import loads, dumps
 
 
 # Create your views here.
@@ -46,9 +47,19 @@ def pack(request, pack_index):
 
 def end_test(request, pack_index):
     try:
-        # pack = Pack.objects.get(id=pack_index)
-        pass
+        pack = Pack.objects.get(id=pack_index)
     except:
         return Http404("Pack not found ‿︵‿ヽ(°□° )ノ︵‿︵")
 
-    return HttpResponse("Yeeesss" + request.POST["answers"])
+    answers = loads(request.POST["answers"])
+    questions = pack.question_set.all()
+    result_list = []
+    for i in range(len(answers)):
+        """
+        Here I need to check answers and add result
+        to database! Also I need to refresh Paisons
+        of that user in positive case.
+        """
+        result_list.append(answers[i] == questions[i].index_of_correct)
+
+    return HttpResponse(dumps(result_list))
