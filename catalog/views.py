@@ -51,15 +51,16 @@ def end_test(request, pack_index):
     except:
         return Http404("Pack not found ‿︵‿ヽ(°□° )ノ︵‿︵")
 
-    answers = loads(request.POST["answers"])
-    questions = pack.question_set.all()
-    result_list = []
-    for i in range(len(answers)):
-        """
-        Here I need to check answers and add result
-        to database! Also I need to refresh Paisons
-        of that user in positive case.
-        """
-        result_list.append(answers[i] == questions[i].index_of_correct)
+    if request.POST:
+        answers = loads(request.POST["answers"])
+        questions = pack.question_set.all()
+        result_list = []
+        for i in range(len(answers)):
+            """
+            Here I need to check answers and add result
+            to database! Also I need to refresh Paisons
+            of that user in positive case.
+            """
+            result_list.append(answers[i] == questions[i].index_of_correct)
 
-    return HttpResponse(dumps(result_list))
+        return HttpResponse(dumps(result_list))

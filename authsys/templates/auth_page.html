@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>SignIn</title>
+    {% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/auth_page.css' %}">
+</head>
+<body>
+	<header class="container">
+		<a href="index.html">
+		<img src="{% static 'img/Logo.png' %}" id="logo">
+		</a>
+		<h1 id="lolaa">Sign In</h1>
+		<form id="email_password_box" action="{% url 'login' %}" method="post" name="form" onsubmit="valid(this)">
+			{% csrf_token %}
+            <div class="email">
+				<label for="email" id="label_email">@Email:   </label>
+				<input type="text" name="email" id="email_box" class="boxes" onclick="to_black_color(label_email)">
+			</div>
+			<div class="passsword">
+				<label for="password" id="label_password">Password: </label>
+				<input type="password" name="password" id="password_box" class="boxes" onclick="to_black_color(label_password)">
+			</div>
+			<input type="submit" name="submit" id="uviity" style="font-size: 25pt; height: 60px; margin-top: 30px" value="Увійти">
+            {% if login_error %}
+            <label class="error">{{ login_error }}</label>
+            {% endif %}
+		</form>
+	</header>
+	<script type="text/javascript" src="{% static 'JavaScript/auth_page.js' %}"></script>
+</body>
+</html>
