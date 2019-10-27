@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.urls import reverse
 from .models import *
@@ -24,12 +24,19 @@ def lol(request):
 
 
 def packs(request):
-    count_of_packs = Pack.objects.all().count()
-    packs = Pack.objects.all()
+    user = request.user
+    if user.is_authenticated:
+        count_of_packs = Pack.objects.all().count()
+        packs = Pack.objects.all()
 
-    return render(request, "MyCabinet_page.html",
-                  context={"count_of_packs": count_of_packs,
-                           "all_packs": packs})
+        return render(request, "MyCabinet_page.html",
+                      context={"count_of_packs": count_of_packs,
+                               "all_packs": packs,
+                               "paisons": 0,
+                               "username": user.username,
+                               })
+    else:
+        return redirect("/auth/login/")
 
 
 def pack(request, pack_index):
