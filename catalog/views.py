@@ -3,7 +3,7 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.urls import reverse
 from django.db.models import QuerySet
 from .models import *
-from authsys.models import IncorrectPack as FailedPack
+from authsys.models import FailedPack
 from json import loads, dumps
 
 
@@ -90,9 +90,13 @@ def end_test(request, pack_index):
 
         user = request.user
         if result:
-            user.userprofile.paisons += pack.paisons
+            user.userprofile.paisons += pack.reward
+            print(user.userprofile.paisons)
             user.userprofile.completed_packs.add(pack)
+            user.userprofile.save()
         else:
-            FailedPack.objects.create(name=pack.name,)
-
+            failed_pack = FailedPack.objects.create(pack=pack)
+            user.userprofile.failed_packs.add(failed_pack)
+            user.userprofile.save()
         return HttpResponse(dumps(result_list))
+

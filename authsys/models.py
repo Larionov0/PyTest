@@ -20,7 +20,7 @@ class MoneyAchievement(Achievement):
     paisons = models.IntegerField(default=1000000)
 
 
-class IncorrectPack(models.Model):
+class FailedPack(models.Model):
     pack = models.OneToOneField(Pack, on_delete=models.CASCADE, default=0)
     date = models.DateTimeField(default=datetime.now())
 
@@ -31,7 +31,7 @@ class IncorrectPack(models.Model):
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, default=0)
     completed_packs = models.ManyToManyField(Pack, blank=True, related_name="completed_users")
-    failed_packs = models.ManyToManyField(IncorrectPack, blank=True, related_name="failed_users")
+    failed_packs = models.ManyToManyField(FailedPack, blank=True, related_name="failed_users")
     paisons = models.IntegerField(default=0)
     achievements = models.ManyToManyField(Achievement, blank=True)
 

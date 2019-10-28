@@ -64,6 +64,8 @@
 		var current_pack = new Pack(pack_name, [], pack_reward);
 
 		{% for question in pack.question_set.all %}
+		console.log('{{ question.question|safe|linebreaks }}')
+		console.log('{{ question.answers_json|safe }}')
 		current_pack.add_question(new TestQuestion('{{ question.question|safe|linebreaks }}', '{{ question.answers_json|safe }}'));
 		{% endfor %}
 		set_nth_question(current_pack, 0)
