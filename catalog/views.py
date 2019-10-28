@@ -3,6 +3,7 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.urls import reverse
 from django.db.models import QuerySet
 from .models import *
+from authsys.models import IncorrectPack as FailedPack
 from json import loads, dumps
 
 
@@ -28,17 +29,17 @@ def packs(request):
     user = request.user
     if user.is_authenticated:
         context = {}
-        count_of_packs = Pack.objects.count()
         packs = []
         profile = user.userprofile
         for pack in Pack.objects.all():
-            if pack not in profile.completed_packs.all():
+            if pack not in profile.completed_packs.all() and pack not in profile.failed_packs.all():
                 packs.append(pack)
 
         context["completed_count"] = profile.completed_packs.count()
         context["all_packs"] = packs
         context["username"] = user.username
         context["paisons"] = profile.paisons
+        context["achievements"] = profile.achievements.all()
 
         return render(request, "MyCabinet_page.html", context=context)
     else:
@@ -51,11 +52,18 @@ def pack(request, pack_index):
     except:
         return Http404("Pack not found ‿︵‿ヽ(°□° )ノ︵‿︵")
 
-    return render(request,
+    user = request.user
+    if user.is_authenticated:
+        if pack in user.userprofile.completed_packs.all() or pack in user.userprofile.failed_packs.all():
+            return redirect(reverse("packs"))
+
+        return render(request,
                   "Pack_page.html",
                   context={
                       "pack": pack,
                   })
+    else:
+        return redirect(reverse("authsys:login"))
 
 
 def end_test(request, pack_index):
@@ -68,12 +76,23 @@ def end_test(request, pack_index):
         answers = loads(request.POST["answers"])
         questions = pack.question_set.all()
         result_list = []
+        result = True
         for i in range(len(answers)):
             """
             Here I need to check answers and add result
             to database! Also I need to refresh Paisons
             of that user in positive case.
             """
-            result_list.append(answers[i] == questions[i].index_of_correct)
+            is_correct_answer = answers[i] == questions[i].index_of_correct
+            if not is_correct_answer:
+                result = False
+            result_list.append(is_correct_answer)
+
+        user = request.user
+        if result:
+            user.userprofile.paisons += pack.paisons
+            user.userprofile.completed_packs.add(pack)
+        else:
+            FailedPack.objects.create(name=pack.name,)
 
         return HttpResponse(dumps(result_list))

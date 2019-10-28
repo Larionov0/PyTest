@@ -20,9 +20,11 @@ function set_nth_question(pack, n){
 	document.getElementById('question').innerHTML = pack.questions[n].question;
 	var html_code = "";
 	var answers = pack.questions[n].answers;
+	html_code += "<ul class='variants'>"
 	for (i in answers){
-		html_code += `<input type="radio" name="answers">${answers[i]}`;
+		html_code += `<li><input type="radio" class='radio' name="answers">${answers[i]}</li>`;
 	}
+	html_code += "</ul>"
 	var form = document.getElementById('answer_form');
 	form.innerHTML = "";
 	form.insertAdjacentHTML('afterbegin', html_code);
@@ -47,7 +49,7 @@ function print_result(result_array){
 		html_code += `<li>${result_array[i]}</li>`;
 	}
 	html_code += "</ol>"
-	html_code += "<div class = 'center'><button id='PassTest_button' onclick='toPage(\"MyCabinet_page.html\", \"_self\")'>До Мого Кабінету</button></div>"
+	html_code += "<div class = 'center'><button id='PassTest_button' onclick='toPage(\"" + url_to_my_cab + "\", \"_self\")'>До Мого Кабінету</button></div>"
 	var base = document.getElementById("base");
 	base.innerHTML = html_code;
 }
@@ -107,6 +109,7 @@ function end_test(array) {
         answers : JSON.stringify(array)
     	},
     success: function(result_json) {
+
 		console.log(result_json);
 		print_result(JSON.parse(result_json));
 	    },

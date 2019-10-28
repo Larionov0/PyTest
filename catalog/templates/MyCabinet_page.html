@@ -28,14 +28,13 @@
 				</tr>
 				<tr>
 					<td class="keyss">Досягнення: </td>
-					<td id="achivements"><ul>
-						<li>Awesome Pythonist</li>
-						<li>Great Pythonist</li>
-						<li>Wonderfull Pythonist</li>
-						<li>Awesome Pythonist</li>
-						<li>Awesome Pythonist</li>
-						<li>Awesome Pythonist</li>
-					</ul></td>
+					{% if achievements %}
+						<td id="achivements"><ul>
+						{% for achievement in achievements %}
+							<li>achievement.name</li>
+						{% endfor %}
+						</ul></td>
+					{% endif %}
 				</tr>
 			</table>
 		</div>

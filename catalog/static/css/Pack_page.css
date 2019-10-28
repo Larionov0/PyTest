@@ -167,6 +167,11 @@ div#NavBox {
 	align-content: center;
 }
 
+
+.variants {
+    list-style-type: none;
+}
+
 /*Footer*/
 #mini-logo {
 	float: left;
