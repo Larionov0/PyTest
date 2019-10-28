@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.urls import reverse
+from django.db.models import QuerySet
 from .models import *
 from json import loads, dumps
 
@@ -26,15 +27,20 @@ def lol(request):
 def packs(request):
     user = request.user
     if user.is_authenticated:
-        count_of_packs = Pack.objects.all().count()
-        packs = Pack.objects.all()
+        context = {}
+        count_of_packs = Pack.objects.count()
+        packs = []
+        profile = user.userprofile
+        for pack in Pack.objects.all():
+            if pack not in profile.completed_packs.all():
+                packs.append(pack)
 
-        return render(request, "MyCabinet_page.html",
-                      context={"count_of_packs": count_of_packs,
-                               "all_packs": packs,
-                               "paisons": 0,
-                               "username": user.username,
-                               })
+        context["completed_count"] = profile.completed_packs.count()
+        context["all_packs"] = packs
+        context["username"] = user.username
+        context["paisons"] = profile.paisons
+
+        return render(request, "MyCabinet_page.html", context=context)
     else:
         return redirect("/auth/login/")
 
