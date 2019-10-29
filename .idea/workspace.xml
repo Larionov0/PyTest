@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8dc70fc5-6f30-4a5a-a7f9-fe7a824b902e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authsys/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/authsys/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authsys/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/authsys/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog/static/JavaScript/Pack_page.js" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/static/JavaScript/Pack_page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog/static/css/Pack_page.css" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/static/css/Pack_page.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog/templates/MyCabinet_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/MyCabinet_page.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,13 +49,25 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/authsys/admin.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="200">
               <caret line="8" selection-start-line="8" selection-end-line="8" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/catalog/templates/MyCabinet_page.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+              <folding>
+                <element signature="n#style#0;n#h2#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -78,7 +85,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/catalog/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
+            <state relative-caret-position="200">
               <caret line="14" column="60" selection-start-line="14" selection-start-column="60" selection-end-line="14" selection-end-column="60" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
@@ -127,7 +134,6 @@
         <option value="$PROJECT_DIR$/authsys/urls.py" />
         <option value="$PROJECT_DIR$/authsys/views.py" />
         <option value="$PROJECT_DIR$/authsys/templates/auth_page.html" />
-        <option value="$PROJECT_DIR$/catalog/templates/MyCabinet_page.html" />
         <option value="$PROJECT_DIR$/catalog/templates/Pack_page.html" />
         <option value="$PROJECT_DIR$/catalog/views.py" />
         <option value="$PROJECT_DIR$/catalog/static/css/Pack_page.css" />
@@ -135,6 +141,7 @@
         <option value="$PROJECT_DIR$/catalog/models.py" />
         <option value="$PROJECT_DIR$/authsys/models.py" />
         <option value="$PROJECT_DIR$/authsys/admin.py" />
+        <option value="$PROJECT_DIR$/catalog/templates/MyCabinet_page.html" />
       </list>
     </option>
   </component>
@@ -160,6 +167,12 @@
               <item name="MyTestSyte" type="b2602c69:ProjectViewProjectNode" />
               <item name="MyTestSyte" type="462c0819:PsiDirectoryNode" />
               <item name="authsys" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyTestSyte" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyTestSyte" type="462c0819:PsiDirectoryNode" />
+              <item name="authsys" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MyTestSyte" type="b2602c69:ProjectViewProjectNode" />
@@ -293,7 +306,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572343268155</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Fixed problem with OneToOne field of Failed Pack&#10;Fixed screen view of variant of answers&#10;Added color to pack">
+      <created>1572368519742</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1572368519743</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -333,7 +353,8 @@
     <MESSAGE value="Corrected view of packs with user info" />
     <MESSAGE value="Restored database&#10;Added Paisons up for every completed pack!" />
     <MESSAGE value="Failed packs hidden&#10;Added using timezone.now() for failed pack restoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="Failed packs hidden&#10;Added using timezone.now() for failed pack restoring" />
+    <MESSAGE value="Fixed problem with OneToOne field of Failed Pack&#10;Fixed screen view of variant of answers&#10;Added color to pack" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed problem with OneToOne field of Failed Pack&#10;Fixed screen view of variant of answers&#10;Added color to pack" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/catalog/migrations/0001_initial.py">
@@ -447,13 +468,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/catalog/templates/MyCabinet_page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="36" column="31" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/authsys/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -481,16 +495,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/catalog/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="14" column="60" selection-start-line="14" selection-start-column="60" selection-end-line="14" selection-end-column="60" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/catalog/static/css/Pack_page.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-14">
@@ -505,13 +509,6 @@
           <folding>
             <element signature="n#style#0;n#img#0;n#p#0;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/catalog/static/JavaScript/Pack_page.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
         </state>
       </provider>
     </entry>
@@ -535,12 +532,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/catalog/static/JavaScript/Pack_page.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalog/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="14" column="60" selection-start-line="14" selection-start-column="60" selection-end-line="14" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/authsys/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="8" selection-start-line="8" selection-end-line="8" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalog/templates/MyCabinet_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+          <folding>
+            <element signature="n#style#0;n#h2#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
