@@ -1,11 +1,10 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.urls import reverse
-from django.db.models import QuerySet
+from django.utils.timezone import timedelta, now
 from .models import *
 from authsys.models import FailedPack
 from json import loads, dumps
-
 
 # Create your views here.
 def index(request):
@@ -31,8 +30,22 @@ def packs(request):
         context = {}
         packs = []
         profile = user.userprofile
+
+        i = 0
+        while i < profile.failed_packs.count():
+            failed = profile.failed_packs.all()[i]
+            print(failed.date)
+            print(now())
+            if failed.date + timedelta(minutes=1) <= now():
+                print(f"Pack reseted for {user.username}")
+                profile.failed_packs.remove(failed)
+                continue
+            i += 1
+
+        print([failed.pack for failed in profile.failed_packs.all()])
+
         for pack in Pack.objects.all():
-            if pack not in profile.completed_packs.all() and pack not in profile.failed_packs.all():
+            if pack not in profile.completed_packs.all() and pack not in [failed.pack for failed in profile.failed_packs.all()]:
                 packs.append(pack)
 
         context["completed_count"] = profile.completed_packs.count()
@@ -54,7 +67,7 @@ def pack(request, pack_index):
 
     user = request.user
     if user.is_authenticated:
-        if pack in user.userprofile.completed_packs.all() or pack in user.userprofile.failed_packs.all():
+        if pack in user.userprofile.completed_packs.all() or pack in [failed.pack for failed in user.userprofile.failed_packs.all()]:
             return redirect(reverse("packs"))
 
         return render(request,
@@ -95,8 +108,14 @@ def end_test(request, pack_index):
             user.userprofile.completed_packs.add(pack)
             user.userprofile.save()
         else:
-            failed_pack = FailedPack.objects.create(pack=pack)
-            user.userprofile.failed_packs.add(failed_pack)
+            try:
+                failed = pack.failedpack
+                print(f"Failed Pack: {failed.date}")
+            except Pack.failedpack.RelatedObjectDoesNotExist:
+                failed = FailedPack.objects.create(pack=pack)
+            failed.date = now()
+            failed.save()
+            user.userprofile.failed_packs.add(failed)
             user.userprofile.save()
         return HttpResponse(dumps(result_list))
 
