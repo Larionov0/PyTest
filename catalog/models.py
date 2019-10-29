@@ -12,6 +12,7 @@ class Pack(models.Model):
     name = models.CharField(max_length=50, default="PackName", help_text="Name of pack")
     reward = models.IntegerField(default=0, help_text="Reward in Paisons")
     difficulty = models.IntegerField(default=0, help_text="Difficult of pack")
+    color = models.CharField(max_length=30, default="green")
 
     def __str__(self):
         return str(self.name) + " pack"

@@ -21,7 +21,7 @@ class MoneyAchievement(Achievement):
 
 
 class FailedPack(models.Model):
-    pack = models.OneToOneField(Pack, on_delete=models.CASCADE, default=0)
+    pack = models.ForeignKey(Pack, on_delete=models.CASCADE, default=0)
     date = models.DateTimeField(default=now())
 
     def __str__(self):

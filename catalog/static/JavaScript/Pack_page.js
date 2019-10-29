@@ -20,11 +20,9 @@ function set_nth_question(pack, n){
 	document.getElementById('question').innerHTML = pack.questions[n].question;
 	var html_code = "";
 	var answers = pack.questions[n].answers;
-	html_code += "<ul class='variants'>"
 	for (i in answers){
-		html_code += `<li><input type="radio" class='radio' name="answers">${answers[i]}</li>`;
+		html_code += `<p><input type="radio" class='radio' name="answers">${answers[i]}</p>`;
 	}
-	html_code += "</ul>"
 	var form = document.getElementById('answer_form');
 	form.innerHTML = "";
 	form.insertAdjacentHTML('afterbegin', html_code);

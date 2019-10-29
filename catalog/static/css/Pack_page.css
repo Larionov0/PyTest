@@ -119,8 +119,6 @@ div#NavBox {
 }
 
 #answer_form {
-	display: flex;
-	justify-content: center;
 	font-size: 16pt;
 	color: white;
 }
