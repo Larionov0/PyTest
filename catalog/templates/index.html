@@ -1,35 +1,100 @@
-{% extends "base.html" %}
-
-{% block title %} <h1>Index page</h1> {% endblock %}
-
-{% block link %}
-{% load static %}
-<link rel="stylesheet" href="{% static 'css/index.css' %}" style="text/css">
-{% endblock %}
-
-{% block content %}
-
-<ul>
-    <li>Packs: {{ count_of_packs }}
-        <ul>
-
-        {% for pack in packs %}
-            <li>{{pack.id}}  {{pack.name}}</li>
-        {% endfor %}
-
-        </ul>
-
-    </li>
-
-    <li>Questions: {{ count_of_questions }}
-        <ul>
-
-            {% for question in questions %}
-                <li>{{question.id}}  {{question.question|linebreaks}}</li>
-            {% endfor %}
-
-        </ul>
-    </li>
-</ul>
-
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+	<header>
+		<div class="container">
+			<div class = "UpperRectangle clearfix">
+				<img src="{% static 'css/img/logo.png' %}" alt="Logo" class="logo">
+				<nav>
+					<ul class="menu">
+						<li>
+							<a href="#">Правила</a>
+						</li>
+						<li>
+							<a href="#">Про нас</a>
+						</li>
+						<li>
+							<a href="#">Підтримка</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			
+			
+			<ul class="LogInSignUp">
+				<li>
+					<a href="{% url 'authsys:login' %}">Sign IN</a>
+				</li>
+				<li>
+					<a href="{% url 'authsys:signup' %}">Sign UP</a>
+				</li>
+				<li>
+					<a href="{% url 'admin:index' %}">AdmIN</a>
+				</li>
+			</ul>
+		</div>
+	</header>
+	<section>
+		<div class="container">
+			<h1 id="Need_to_do_text">Варто зробити:</h1>
+			<div class="need_to_do">
+				<div class="need_to_do_item" 
+				id="need_to_do_item1">
+					<h2>
+						1
+					</h2>
+					<p>
+						Реєструйся на сайті та опинись у власному кабінеті (тиць <br/> « <a href="#">Sign Up</a> »)
+					</p>
+				</div>
+				<div class="need_to_do_central_items clearfix">
+					<div class="need_to_do_item"
+					id="need_to_do_item2">
+						<h2>
+							2
+						</h2>
+						<p>
+							Проходь сети завдань і отримуй досягуйки та Пайсони - місцеву валюту
+						</p>
+					</div>
+					<div class="need_to_do_item"
+					id="need_to_do_item3">
+						<h2>
+							3
+						</h2>
+						<p>
+							Змагайся з друзями та зароби якомога більше Пайсонів
+						</p>
+					</div>
+				</div>
+				<div class="clearfix">
+					<div class="need_to_do_item"
+				id="need_to_do_item4">
+					<h2>
+						4
+					</h2>
+					<p>
+						Доведи, що ти шариш Пайтон!
+						(Або просто потренуйся : )
+					</p>
+				</div>
+				</div>
+				
+			</div>
+		</div>
+	</section>
+	<footer>
+		<hr/>
+		<div class="container clearfix">
+			<img src="{% static 'css/img/MiniLogo.png' %}", alt="Mini-logo", id="mini-logo">
+			<p id="footer_info"><img style="width: 25px; height: auto;" src="{% static 'css/img/Telegram.png' %}"> Telegram: <a href="https://web.telegram.org/#/login">@Larko_0</a><br/>Phone number: +380950218899</p>
+		</div>
+	</footer>
+</body>
+</html>

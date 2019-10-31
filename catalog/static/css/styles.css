@@ -1,7 +1,193 @@
 body {
-    background-color: red;
+	font-family: Cooper Black, Arial, sans-serif;
+	padding: 0;
+	margin: 0;
 }
 
-.lol {
-    font-size: 60pt;
+header {
+	background: url("img/Bacground.png") no-repeat center top / cover;
+	height: auto;
+	padding: 10px 0 0 0;
+}
+
+div {
+	box-sizing: border-box;
+}
+
+
+/*Header*/
+.UpperRectangle {
+	margin-top: 0px;
+	border-width: 2.51px;
+	border-color: rgb(0, 0, 0);
+	border-style: solid;
+	border-radius: 20px;
+	background-color: rgba(168, 224, 137, 0.7);
+	height: 87px;
+}
+
+/*Логотип*/
+.logo {
+	max-width: 200px;
+	height: auto;
+	float: left;
+	opacity: 100%;
+	margin-top: 10px;
+}
+
+/*Контейнер з рамками зліва та справа*/
+.container {
+	width: 900px;
+	margin: 0 auto;
+}
+
+/*Виправлення float*/
+.clearfix:after {
+	content: '';
+	display: table;
+	width: 100%;
+	clear: both;
+}
+
+/*навігація*/
+nav {
+	float: right;
+}
+/*Меню зверху справа*/
+.menu {
+	padding: 0;
+	margin: 0;
+	display: block;
+	margin-top: 12px;
+	opacity: 1;
+}
+/*Пункти списку в меню*/
+.menu li {
+	float: left;
+	display: block;
+	margin-right: 36px;
+	margin-top: 8px;
+}
+/*Посилання на сторінки в меню навігації*/
+.menu li a {
+	color:#114a17;
+	text-decoration: none;
+	font-size: 28px;
+}
+/*Вибір сторінки: для реєстрації та входу*/
+.LogInSignUp {
+    /*border: 10px solid red;*/
+	margin: 80px 0px 40px 320px;
+	padding-bottom: 30px;
+}
+/*Список: для реєстрації та входу*/
+.LogInSignUp li {
+	display: block;
+	margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*Посилання для реєстрації та входу*/
+.LogInSignUp li a {
+  	margin: 0; 
+  	padding: 20px 30%;
+  	border-width: 1px;
+    border-color: rgb(255, 255, 255);
+    border-style: solid;
+    background-color: rgba(0, 0, 0, 0.322);
+    width: 500px;
+    height: 60px;
+	text-transform: none;
+	text-decoration: none;
+    font-size: 48px;
+    font-family: Cooper Black, Arial, sans-serif;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: flex;
+}
+
+/*Section*/
+/*Заголовок з текстом "варто зробити"*/
+#Need_to_do_text {
+  font-size: 60px;
+  font-family: "Bookman Old Style, Arial";
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: left;
+  font-size: 40px;
+  text-align: center;
+}
+
+/*Текс у пунктах "що треба зробити"*/
+.need_to_do_item p {
+  border-width: 4.43px;
+  border-color: rgb(0, 0, 0);
+  border-style: solid;
+  border-radius: 45px;
+  background-color: rgb(35, 235, 118);
+  width: 380px;
+  height: 100px;
+  font-size: 25px;
+  font-family: "Myriad Pro, Arial";
+  color: rgb(67, 106, 46);
+  line-height: 1.2;
+  text-align: center;
+  padding-top: 10px;
+  margin: 50px 0 0 45px;
+}
+/*Як відображаться цифри у пунктах що варто зробити*/
+.need_to_do_item h2 {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	float: left;
+  	font-family: "Cooper Black Arial";
+  	color: rgb(183, 255, 144);
+  	font-size: 140px;
+}
+/*Пункт 1*/
+#need_to_do_item1 {
+	float: left;
+	margin-left: 220px;
+	margin-bottom: 10px;
+}
+/*Пункт 2*/
+#need_to_do_item2 {
+	float: left;
+}
+/*Пункт 3*/
+#need_to_do_item3 {
+	float: right;
+}
+/*Пункт 4*/
+#need_to_do_item4 {
+	float: left;
+	margin-left: 220px;
+	margin-bottom: 50px;
+}
+/*Центральні: пункт 2 та пункт 3*/
+.need_to_do_central_items {
+	margin-bottom: 10px;
+}
+
+/*Footer*/
+#mini-logo {
+	float: left;
+}
+/*Текст у підвалі*/
+footer p {
+	margin-top: 0;
+	margin-right: 100px;
+	float: right;
+ 	font-family: "Myriad Pro";
+  	color: rgb(82, 134, 104);
+  	font-size: 30px;
+  	text-align: center;
+}
+/*Посилання у підвалі*/
+footer a {
+	text-decoration: none;
 }

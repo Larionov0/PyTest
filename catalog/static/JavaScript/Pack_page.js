@@ -88,6 +88,10 @@ function next_question(){
 	}
 }
 
+function previous_question(){
+
+}
+
 function Pupa(pack){
     alert(pack);
 }

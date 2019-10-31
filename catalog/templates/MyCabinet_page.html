@@ -10,7 +10,7 @@
 	<header>
 	<div class="container">
 		<div class="UpperRectangle clearfix">
-			<a href="index.html">
+			<a href="{% url 'catalog:index' %}">
 			<img src="{% static 'css/img/logo.png' %}" alt="Logo" id="logo">
 			</a>
 			<p>Мій кабінет</p>
@@ -61,7 +61,7 @@
 				</tr>
 			</table>
 			<button  onclick="toPage('Pack_page.html', '_self')">
-				<p><a class="to_n_pack" href="{% url 'pack' pack.id %}">Відкрити пак</a></p>
+				<p><a class="to_n_pack" href="{% url 'catalog:pack' pack.id %}">Відкрити пак</a></p>
 			</button>
 		</div>
 		{% endfor %}

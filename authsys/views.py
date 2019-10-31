@@ -24,3 +24,7 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect("/")
+
+
+def signup(request):
+    return Http404("Coming soon")

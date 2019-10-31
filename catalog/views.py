@@ -6,18 +6,12 @@ from .models import *
 from authsys.models import FailedPack
 from json import loads, dumps
 
-# Create your views here.
+
 def index(request):
-    count_of_packs = Pack.objects.all().count()
-    packs = Pack.objects.all()
-    count_of_questions = Question.objects.all().count()
-    questions = Question.objects.all()
+    count_of_packs = Pack.objects.count()
 
     return render(request, "index.html",
-                  context={"count_of_packs": count_of_packs,
-                           "count_of_questions": count_of_questions,
-                           "packs": packs,
-                           "questions": questions})
+                  context={"count_of_packs": count_of_packs})
 
 
 def lol(request):
@@ -111,7 +105,7 @@ def end_test(request, pack_index):
             try:
                 failed = pack.failedpack
                 print(f"Failed Pack: {failed.date}")
-            except Pack.failedpack.RelatedObjectDoesNotExist:
+            except:
                 failed = FailedPack.objects.create(pack=pack)
             failed.date = now()
             failed.save()

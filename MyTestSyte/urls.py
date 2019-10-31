@@ -17,8 +17,9 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import RedirectView
 
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name="admin"),
     path('catalog/', include('catalog.urls')),  # Используйте include() чтобы добавлять URL из каталога приложения
     path('', RedirectView.as_view(url='/catalog/', permanent=True)),  # Добавьте URL соотношения, чтобы перенаправить запросы с корневового URL, на URL приложения
     path('auth/', include('authsys.urls'))
