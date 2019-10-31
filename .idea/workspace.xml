@@ -3,16 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8dc70fc5-6f30-4a5a-a7f9-fe7a824b902e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyTestSyte/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyTestSyte/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authsys/templates/auth_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/authsys/templates/auth_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authsys/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/authsys/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authsys/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/authsys/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/catalog/static/JavaScript/Pack_page.js" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/static/JavaScript/Pack_page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/static/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog/templates/MyCabinet_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/MyCabinet_page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/catalog/templates/Pack_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/Pack_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/catalog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
@@ -24,11 +16,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/catalog/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+              <folding>
+                <element signature="e#0#45#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/catalog/static/JavaScript/Pack_page.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="89" lean-forward="true" selection-start-line="89" selection-end-line="89" />
+            <state relative-caret-position="647">
+              <caret line="86" column="58" selection-start-line="86" selection-start-column="58" selection-end-line="86" selection-end-column="58" />
             </state>
           </provider>
         </entry>
@@ -36,8 +40,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/catalog/templates/Pack_page.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="35" column="62" selection-start-line="35" selection-start-column="62" selection-end-line="35" selection-end-column="62" />
+            <state relative-caret-position="334">
+              <caret line="65" column="51" selection-start-line="65" selection-start-column="51" selection-end-line="65" selection-end-column="51" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#p#0;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -91,8 +95,8 @@
         <option value="$PROJECT_DIR$/authsys/views.py" />
         <option value="$PROJECT_DIR$/catalog/templates/index.html" />
         <option value="$PROJECT_DIR$/catalog/templates/MyCabinet_page.html" />
-        <option value="$PROJECT_DIR$/catalog/views.py" />
         <option value="$PROJECT_DIR$/catalog/templates/Pack_page.html" />
+        <option value="$PROJECT_DIR$/catalog/views.py" />
         <option value="$PROJECT_DIR$/catalog/static/JavaScript/Pack_page.js" />
       </list>
     </option>
@@ -257,14 +261,21 @@
       <option name="project" value="LOCAL" />
       <updated>1572368780978</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Corrected error with fail pack">
+      <created>1572511109216</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1572511109216</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -275,7 +286,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.2700491" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.6121113" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.3289689" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.3289689" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -300,7 +311,8 @@
     <MESSAGE value="Failed packs hidden&#10;Added using timezone.now() for failed pack restoring" />
     <MESSAGE value="Fixed problem with OneToOne field of Failed Pack&#10;Fixed screen view of variant of answers&#10;Added color to pack" />
     <MESSAGE value="Added view of color of packs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added view of color of packs" />
+    <MESSAGE value="Corrected error with fail pack" />
+    <option name="LAST_COMMIT_MESSAGE" value="Corrected error with fail pack" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/catalog/migrations/0001_initial.py">
@@ -460,16 +472,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/catalog/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="115" selection-start-line="115" selection-end-line="115" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/catalog/static/css/MyCabinet_page.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5925">
@@ -520,18 +522,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/catalog/templates/Pack_page.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="35" column="62" selection-start-line="35" selection-start-column="62" selection-end-line="35" selection-end-column="62" />
+        <state relative-caret-position="334">
+          <caret line="65" column="51" selection-start-line="65" selection-start-column="51" selection-end-line="65" selection-end-column="51" />
           <folding>
             <element signature="n#style#0;n#img#0;n#p#0;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/catalog/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/catalog/static/JavaScript/Pack_page.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="89" lean-forward="true" selection-start-line="89" selection-end-line="89" />
+        <state relative-caret-position="647">
+          <caret line="86" column="58" selection-start-line="86" selection-start-column="58" selection-end-line="86" selection-end-column="58" />
         </state>
       </provider>
     </entry>

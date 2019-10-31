@@ -33,6 +33,7 @@ def packs(request):
             if failed.date + timedelta(minutes=1) <= now():
                 print(f"Pack reseted for {user.username}")
                 profile.failed_packs.remove(failed)
+                failed.delete()
                 continue
             i += 1
 
@@ -62,7 +63,7 @@ def pack(request, pack_index):
     user = request.user
     if user.is_authenticated:
         if pack in user.userprofile.completed_packs.all() or pack in [failed.pack for failed in user.userprofile.failed_packs.all()]:
-            return redirect(reverse("packs"))
+            return redirect(reverse("catalog:packs"))
 
         return render(request,
                   "Pack_page.html",

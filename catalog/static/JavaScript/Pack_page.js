@@ -14,11 +14,11 @@ function TestQuestion (question, answers){
 
 
 function set_nth_question(pack, n){
-	if (n >= pack.questions.length) {
+	if (n >= pack.questions.length || n < 0) {
 		return false;
 	}
 	document.getElementById('question').innerHTML = pack.questions[n].question;
-	var html_code = "";
+	var html_code = `<p>Питання ${n+1}/${pack.questions.length}<\p><br>`;
 	var answers = pack.questions[n].answers;
 	for (i in answers){
 		html_code += `<p><input type="radio" class='radio' name="answers">${answers[i]}</p>`;
@@ -26,6 +26,17 @@ function set_nth_question(pack, n){
 	var form = document.getElementById('answer_form');
 	form.innerHTML = "";
 	form.insertAdjacentHTML('afterbegin', html_code);
+	if (n == pack.questions.length - 1){
+	    document.getElementById('NextButton').innerHTML = "Закінчити";
+	} else {
+	    document.getElementById('NextButton').innerHTML = "Наступна";
+	}
+
+	if (user_answers.length != n && user_answers[n] != -1){
+	    document.getElementsByName("answers")[user_answers[n]].checked = true;
+	    console.log('bob');
+	}
+	console.log(user_answers)
 	return true
 }
 
@@ -62,10 +73,6 @@ function no_questions() {
 	base.innerHTML = "<h1>No questions:(</h1>";
 }
 
-var index_of_pack = 0;
-var question_index_ob = {index: 0};
-var user_answers = []
-
 
 
 function next_question(){
@@ -73,23 +80,58 @@ function next_question(){
 	var result = false;
 	for (var i = 0; i < answers.length; i ++){
 		if (answers[i].checked) {
-			user_answers.push(i);
+			if (user_answers.length == question_index_ob.index){
+			    user_answers.push(i);
+			}
+			else {
+			    console.log(`---=${question_index_ob.index}=---`);
+			    user_answers[question_index_ob.index] = i;
+			}
 			result = true;
 			break;
 		}
 	}
-	if (result) {
-		question_index_ob.index ++;
-		if (! set_nth_question(current_pack, question_index_ob.index)){
-		    end_test(user_answers);
+	if (! result) {
+	    if (user_answers.length == question_index_ob.index){
+			    user_answers.push(-1);
+			}
+		else {
+			user_answers[question_index_ob.index] = -1;
 		}
-	} else {
-		console.log('Nope. Answer please');
+	}
+	question_index_ob.index ++;
+	if (! set_nth_question(current_pack, question_index_ob.index)){
+		    end_test(user_answers);
 	}
 }
 
 function previous_question(){
-
+    var answers = document.getElementsByName("answers");
+	var result = false;
+	for (var i = 0; i < answers.length; i ++){
+		if (answers[i].checked) {
+		    if (user_answers.length == question_index_ob.index){
+			    user_answers.push(i);
+			}
+			else {
+			    user_answers[question_index_ob.index] = i;
+			}
+			result = true;
+			break;
+		}
+	}
+	if (! result) {
+	    if (user_answers.length == question_index_ob.index){
+			    user_answers.push(-1);
+			}
+			else {
+			    user_answers[question_index_ob.index] = -1;
+			}
+	}
+	question_index_ob.index --;
+	if (! set_nth_question(current_pack, question_index_ob.index)){
+		    alert("Ви вперлися в початок :) Ненада далі");
+	}
 }
 
 function Pupa(pack){
@@ -117,3 +159,9 @@ function end_test(array) {
 	    },
     });
 }
+
+
+var index_of_pack = 0;
+var question_index_ob = {index: 0};
+var user_answers = []
+
