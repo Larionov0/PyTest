@@ -25,8 +25,7 @@ urlpatterns = [
     path('auth/', include('authsys.urls'))
 ]
 
-# Используйте static() чтобы добавить соотношения для статических файлов
-# Только на период разработки
+
 from django.conf import settings
 from django.conf.urls.static import static
 

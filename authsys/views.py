@@ -6,6 +6,9 @@ from django.contrib.auth.models import User
 
 
 def login(request):
+    if request.user.is_authenticated:
+        return redirect('catalog:packs')
+
     context = {}
     if request.POST:
         username = request.POST.get("username", '')

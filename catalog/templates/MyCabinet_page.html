@@ -6,6 +6,7 @@
 	{% load static %}
 	<link rel="stylesheet" type="text/css" href="{% static 'css/MyCabinet_page.css' %}">
 </head>
+
 <body>
 	<header>
 	<div class="container">
@@ -31,7 +32,7 @@
 					{% if achievements %}
 						<td id="achivements"><ul>
 						{% for achievement in achievements %}
-							<li>achievement.name</li>
+							<li>{{ achievement.name}}</li>
 						{% endfor %}
 						</ul></td>
 					{% endif %}

@@ -30,7 +30,7 @@ def packs(request):
             failed = profile.failed_packs.all()[i]
             print(failed.date)
             print(now())
-            if failed.date + timedelta(minutes=1) <= now():
+            if failed.date + timedelta(seconds=20) <= now():
                 print(f"Pack reseted for {user.username}")
                 profile.failed_packs.remove(failed)
                 failed.delete()
@@ -99,9 +99,9 @@ def end_test(request, pack_index):
         user = request.user
         if result:
             user.userprofile.paisons += pack.reward
-            print(user.userprofile.paisons)
             user.userprofile.completed_packs.add(pack)
             user.userprofile.save()
+            user.userprofile.check_achievements()
         else:
             try:
                 failed = pack.failedpack
@@ -113,4 +113,3 @@ def end_test(request, pack_index):
             user.userprofile.failed_packs.add(failed)
             user.userprofile.save()
         return HttpResponse(dumps(result_list))
-

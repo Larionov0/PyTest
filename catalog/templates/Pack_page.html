@@ -10,7 +10,7 @@
 	<header>
 	<div class="container">
 		<div class="UpperRectangle clearfix">
-			<a href="index.html">
+			<a href="{% url 'catalog:index' %}">
 			<img src="{% static 'css/img/logo.png' %} " alt="Logo" id="logo">
 			</a>
 			<p>Pack</p>
@@ -45,7 +45,7 @@
 	<footer>
 		<hr/>
 		<div class="container clearfix">
-			<img src="{% static 'css/img/MiniLogo.png' %}", alt="Mini-logo", id="mini-logo">
+			<img src="{% static 'css/img/MiniLogo.png' %}" alt="Mini-logo" id="mini-logo">
 			<p id="footer_info"><img style="width: 25px; height: auto;" src="{% static 'css/img/Telegram.png' %}"> Telegram: <a href="https://web.telegram.org/#/login">@Larko_0</a><br/>Phone number: +380950218899</p>
 		</div>
 	</footer>
