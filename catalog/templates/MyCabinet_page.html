@@ -17,7 +17,7 @@
 			<p>Мій кабінет</p>
 		</div>
 		<div id="nickname">
-			<p>{{ username }}</p> <button>Вийти</button>
+			<p>{{ username }}</p> <button onclick="window.open('{% url 'authsys:logout' %}', '_self')">Вийти</button>
 		</div>
 		<div>
 			<table id="atributes">
