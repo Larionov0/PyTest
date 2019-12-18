@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8dc70fc5-6f30-4a5a-a7f9-fe7a824b902e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/authsys/functions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/MyTestSyte.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MyTestSyte.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyTestSyte/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyTestSyte/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authsys/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/authsys/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authsys/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/authsys/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authsys/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/authsys/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog/static/css/MyCabinet_page.css" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/static/css/MyCabinet_page.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/catalog/templates/MyCabinet_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/MyCabinet_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog/templates/Pack_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/Pack_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

@@ -12,12 +12,12 @@
 	<div class="container">
 		<div class="UpperRectangle clearfix">
 			<a href="{% url 'catalog:index' %}">
-			<img src="{% static 'css/img/logo.png' %}" alt="Logo" id="logo">
+			<img class="grow" src="{% static 'css/img/logo.png' %}" alt="Logo" id="logo">
 			</a>
 			<p>Мій кабінет</p>
 		</div>
 		<div id="nickname">
-			<p>{{ username }}</p>
+			<p>{{ username }}</p> <button>Вийти</button>
 		</div>
 		<div>
 			<table id="atributes">
@@ -45,7 +45,7 @@
 		<h1 id="tasks_word">Завдання</h1>
 		<br>
 		{% for pack in all_packs %}
-		<div class="task" id="VariablesPower">
+		<div class="task threed" id="VariablesPower">
 			<h2 style="background-color: {{ pack.color }}">{{ pack.name }}</h2>
 			<table>
 				<tr>
@@ -61,7 +61,7 @@
 					<td class="values">{{ pack.difficulty }}/10</td>
 				</tr>
 			</table>
-			<button  onclick="toPage('Pack_page.html', '_self')">
+			<button class="to_pack_button grow"  onclick="toPage('Pack_page.html', '_self')">
 				<p><a class="to_n_pack" href="{% url 'catalog:pack' pack.id %}">Відкрити пак</a></p>
 			</button>
 		</div>
