@@ -48,9 +48,7 @@ class UserProfile(models.Model):
         # Checking Count of packs achievements
         for achievement in CountOfPacksAchievement.objects.all():
             if achievement not in self.achievements.all():
-                print(1)
                 if achievement.count <= self.completed_packs.count():
-                    print(2)
                     self.achievements.add(achievement)
                     self.add_reward(achievement.reward_json)
 
