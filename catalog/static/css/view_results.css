@@ -1,5 +1,5 @@
 body {
-	font-family: Cooper Black, Arial, sans-serif;
+	font-family: Arial, sans-serif;
 	padding: 0;
 	margin: 0;
 	background-color: rgba(0, 255, 127, 0.5)
@@ -16,6 +16,10 @@ div {
 .container {
 	width: 900px;
 	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 }
 
 
@@ -35,6 +39,7 @@ div {
 	border-radius: 20px;
 	background-color: rgba(168, 224, 137, 0.7);
 	height: 87px;
+	align-self: stretch;
 }
 
 .UpperRectangle p {
@@ -91,7 +96,6 @@ div#TaskBox {
 	border-color: white;
 	border-radius: 5px;
 	color: white;
-	white-space: pre;
 }
 
 #TaskBox ul li {
@@ -119,73 +123,29 @@ div#NavBox {
 	background-color: rgba(0, 0, 0, 0.2);
 }
 
-#answer_form {
-	font-size: 16pt;
-	color: white;
-}
-
-#answer_form input {
-	width: 40px;
-	height: 20px;
+.center {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: auto;
+	margin: 0 auto;
 }
 
 .result {
-	font-size: 50pt;
-  	color: rgb(17, 74, 23);
-  	text-align: center;
+	margin: 30px 0px;
+	padding: 5px;
+	width: 300%;
+	border-radius: 10px;
+	background-color: rgba(0,0,0,0.1);
 }
 
-.result1 {
-	font-size: 30pt;
-  	color: rgb(17, 74, 23);
-  	text-align: center;
+#to_cabinet {
+	font-size: 20px;
+	margin-bottom: 20px;
+	background-color: rgba(100, 100, 100, 0.2);
 }
 
-#result_list {
-	width: 100px;
-	margin: 0 auto 100px;
-}
-
-#result_list li {
-	color: rgb(17, 74, 23);
-	font-size: 20pt;
-}
-
-#PassTest_button {
-	width: 300px;
-	height: 40px;
-	margin: 0 auto;
-	text-align: center;
-	background-color: rgba(0, 0, 0, 0.1);
-	margin-bottom: 30px;
-}
-
-.center {
-	display: flex;
-	justify-content: center;
-	align-content: center;
-}
-
-
-.variants {
-    list-style-type: none;
-}
-
-/*Footer*/
-#mini-logo {
-	float: left;
-}
-
-footer p {
-	margin-top: 0;
-	margin-right: 100px;
-	float: right;
- 	font-family: "Myriad Pro";
-  	color: rgb(82, 134, 104);
-  	font-size: 30px;
-  	text-align: center;
-}
-
-footer a {
-	text-decoration: none;
+.result p {
+	white-space: pre;
 }

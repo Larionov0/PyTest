@@ -19,6 +19,8 @@ def lol(request):
 
 
 def packs(request):
+    request.session['answers'] = None
+    request.session['result_list'] = None
     user = request.user
     if user.is_authenticated:
         context = {}
@@ -75,7 +77,6 @@ def pack(request, pack_index):
 
 
 def end_test(request, pack_index):
-    print("kek!!!!")
     try:
         pack = Pack.objects.get(id=pack_index)
     except:
@@ -109,9 +110,39 @@ def end_test(request, pack_index):
             user.userprofile.failed_packs.add(failed)
             user.userprofile.save()
         request.session["result_list"] = result_list
+        request.session["answers"] = answers
         return HttpResponse(":)")
+
+
+class Result:
+    def __init__(self, question, is_correct, user_answer):
+        self.question = question
+        self.is_correct = is_correct
+        self.user_answer = user_answer
 
 
 def view_results(request, pack_index):
     result_list = request.session.get('result_list')
-    return HttpResponse(str(result_list))
+    answers = request.session.get('answers')
+    pack = Pack.objects.get(id=pack_index)
+    questions = pack.question_set.all()
+
+    results = []
+    for i in range(len(result_list)):
+        answer = answers[i]
+        if answer == -1:
+            answer = None
+        else:
+            answer = questions[i].get_answers()[answer]
+        results.append(Result(questions[i], result_list[i], answer))
+
+    context = {
+        'results': results,
+        "result": not (False in result_list)
+    }
+
+    return render(
+        request,
+        'view_results.html',
+        context=context
+    )

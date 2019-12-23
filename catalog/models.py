@@ -35,11 +35,8 @@ class Question(models.Model):
     count_of_correct = models.IntegerField(default=0, help_text="Count of correct answers")
     count_of_incorrect = models.IntegerField(default=0, help_text="Count of incorrect answers")
 
-    def set_answers(self, lst):
-        self.answers = dumps(lst)
-
     def get_answers(self):
-        return loads(self.answers)
+        return loads(self.answers_json)
 
     def get_html_question(self):
         i = 0

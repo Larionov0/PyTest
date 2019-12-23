@@ -155,7 +155,7 @@ function end_test(array) {
         answers : JSON.stringify(array)
     	},
     success: function(response) {
-            toPage(url_view_result);
+            toPage(url_view_result, "_self");
 	    },
     });
     console.log('sended');

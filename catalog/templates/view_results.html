@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}
+results
+{% endblock %}
+
+{% block link %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/view_results.css' %}">
+{% endblock %}
+
+{% block content %}
+<header>
+	<div class="container">
+		<div class="UpperRectangle clearfix">
+			<a href="{% url 'catalog:index' %}">
+			<img src="{% static 'css/img/logo.png' %} " alt="Logo" id="logo">
+			</a>
+			<p>Pack</p>
+		</div>
+	</div>
+	<div class="color_of_pack container ">
+
+	</div>
+</header>
+<section class="container">
+	<h1 class="center">
+		{% if  result %}
+		Тест пройдено ヽ(・∀・)ﾉ
+		{% else %}
+		Тест завалено ¯\_(ツ)_/¯
+		{% endif %}
+	</h1>
+	<div class="center">
+	   	 {% for result in results %}
+		   	<div class='result'>
+		   	<p> {{ result.question.question }} </p>
+		    {% if result.is_correct %}
+		  	<li style="color: green;background-color: rgba(0,255,0,0.2)">{{result.user_answer }}</li>
+		   	{% else %}
+		   	<li style="color: red; background-color: rgba(255,0,0,0.2)">{{result.user_answer }}</li>
+		   	{% endif %}
+		   	</div>
+		 {% endfor %}
+	</div>
+	<div class="center">
+		<a href="{% url 'catalog:packs' %}" target='_self'><button id="to_cabinet">До кабінету</button></a>
+	</div>
+
+</section>
+{% endblock %}
