@@ -42,6 +42,7 @@ function set_nth_question(pack, n){
 
 
 function print_result(result_array){
+
 	var test_passed = true;
 	var res = false;
 	if (result_array.indexOf(false) != -1){
@@ -144,6 +145,7 @@ function set_pack(name, paisons) {
 
 
 function end_test(array) {
+    console.log("sendin...");
 	console.log(array);
 	$.ajax({
     url: url_end_test,
@@ -152,12 +154,11 @@ function end_test(array) {
     	csrfmiddlewaretoken: csrf_token,
         answers : JSON.stringify(array)
     	},
-    success: function(result_json) {
-
-		console.log(result_json);
-		print_result(JSON.parse(result_json));
+    success: function(html) {
+            document.getElementById('base').innerHTML = html;
 	    },
     });
+    console.log('sended');
 }
 
 

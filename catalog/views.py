@@ -75,6 +75,7 @@ def pack(request, pack_index):
 
 
 def end_test(request, pack_index):
+    print("kek!!!!")
     try:
         pack = Pack.objects.get(id=pack_index)
     except:
@@ -86,11 +87,6 @@ def end_test(request, pack_index):
         result_list = []
         result = True
         for i in range(len(answers)):
-            """
-            Here I need to check answers and add result
-            to database! Also I need to refresh Paisons
-            of that user in positive case.
-            """
             is_correct_answer = answers[i] == questions[i].index_of_correct
             if not is_correct_answer:
                 result = False
@@ -112,4 +108,7 @@ def end_test(request, pack_index):
             failed.save()
             user.userprofile.failed_packs.add(failed)
             user.userprofile.save()
-        return HttpResponse(dumps(result_list))
+        return render(request, 'result.html', context={
+            "result": result_list,
+            "pack": pack
+        })
