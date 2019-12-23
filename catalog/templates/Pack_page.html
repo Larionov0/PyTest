@@ -49,6 +49,7 @@
 	</footer>
 	<script type="text/javascript">
 		var url_end_test = "{% url 'catalog:end_test' pack.id %}";
+		var url_view_result = "{% url 'catalog:view_results' pack.id %}"
 		var pack_name = '{{ pack.name|safe }}';
 		var pack_reward = {{ pack.reward|safe }};
 		var csrf_token = "{{ csrf_token }}";
@@ -56,7 +57,6 @@
 
 	</script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-    <!--<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>-->
 	<script type="text/javascript" src="{% static 'JavaScript/Pack_page.js' %}"></script>
 	<script>
 		var current_pack = new Pack(pack_name, [], pack_reward);

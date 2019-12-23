@@ -154,8 +154,8 @@ function end_test(array) {
     	csrfmiddlewaretoken: csrf_token,
         answers : JSON.stringify(array)
     	},
-    success: function(html) {
-            document.getElementById('base').innerHTML = html;
+    success: function(response) {
+            toPage(url_view_result);
 	    },
     });
     console.log('sended');
@@ -165,4 +165,3 @@ function end_test(array) {
 var index_of_pack = 0;
 var question_index_ob = {index: 0};
 var user_answers = []
-

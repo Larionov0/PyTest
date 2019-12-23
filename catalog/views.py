@@ -108,7 +108,10 @@ def end_test(request, pack_index):
             failed.save()
             user.userprofile.failed_packs.add(failed)
             user.userprofile.save()
-        return render(request, 'result.html', context={
-            "result": result_list,
-            "pack": pack
-        })
+        request.session["result_list"] = result_list
+        return HttpResponse(":)")
+
+
+def view_results(request, pack_index):
+    result_list = request.session.get('result_list')
+    return HttpResponse(str(result_list))
