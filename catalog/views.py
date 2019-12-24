@@ -14,10 +14,6 @@ def index(request):
                   context={"count_of_packs": count_of_packs})
 
 
-def lol(request):
-    return HttpResponse("<ul><li>lol</li><li>kek</li><li>cheburek</li></ul>")
-
-
 def packs(request):
     request.session['answers'] = None
     request.session['result_list'] = None
