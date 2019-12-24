@@ -159,6 +159,8 @@ function end_test(array) {
 	    },
     });
     console.log('sended');
+
+
 }
 
 

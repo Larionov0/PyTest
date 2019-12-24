@@ -57,4 +57,5 @@ class Question(models.Model):
         """
         String for representing the MyModelName object (in Admin site etc.)
         """
-        return f"{self.question[:30]}..."
+        pack = self.quest_pack
+        return f"{pack.name}: {list(pack.question_set.all()).index(self) + 1}) {self.question[:12]}..."
