@@ -144,23 +144,21 @@ function set_pack(name, paisons) {
 }
 
 
-function end_test(array) {
-    console.log("sendin...");
-	console.log(array);
-	$.ajax({
-    url: url_end_test,
-    type: "POST",
-    data: {
-    	csrfmiddlewaretoken: csrf_token,
-        answers : JSON.stringify(array)
-    	},
-    success: function(response) {
-            toPage(url_view_result, "_self");
-	    },
+async function end_test(array) {
+	let data = new FormData();
+	data.append('csrfmiddlewaretoken', csrf_token)
+	data.append('answers', user_answers)
+
+    await fetch(url_end_test, {
+      method: 'POST',
+      headers: {
+        'X-CSRF-Token': csrf_token
+      },
+      body: data,
+      credentials: 'same-origin',
     });
-    console.log('sended');
-
-
+    console.log('sending');
+    toPage(url_view_result, "_self");
 }
 
 

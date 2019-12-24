@@ -79,7 +79,11 @@ def end_test(request, pack_index):
         return Http404("Pack not found ‿︵‿ヽ(°□° )ノ︵‿︵")
 
     if request.POST:
-        answers = loads(request.POST["answers"])
+        print(request.POST)
+        answers = request.POST["answers"].split(",")
+        for i in range(len(answers)):
+            answers[i] = int(answers[i])
+        print(answers)
         questions = pack.question_set.all()
         result_list = []
         result = True
@@ -105,6 +109,7 @@ def end_test(request, pack_index):
             failed.save()
             user.userprofile.failed_packs.add(failed)
             user.userprofile.save()
+        print(result_list)
         request.session["result_list"] = result_list
         request.session["answers"] = answers
         return HttpResponse(":)")
